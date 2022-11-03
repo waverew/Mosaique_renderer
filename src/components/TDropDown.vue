@@ -4,10 +4,10 @@
             Template
          </label>
         <select>
-            <option >
+            <option>
                 {{text1}}
             </option>
-            <option >
+            <option>
                 {{text2}}
             </option>
         </select>
@@ -16,14 +16,15 @@
 <script>
 export default{
     name:"TDropDown",
-    props:['text1', "text2"],
+    props:['text1', "text2", "fun"],
     data(){
         return {
+            
 
         }
     },
     methods:{
-
+        
     }
 }
 

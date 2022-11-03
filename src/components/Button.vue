@@ -1,21 +1,23 @@
 <template>
-<button>{{text1}}</button>
+    <button>
+        {{text1}}
+    </button>
 </template>
 <script>
-export default{
-    name:"Button",
-    props:[
-    "text1"
-    ],
-    data(){
-        return{
+    export default{
+        name:"Button",
+        props:[
+            "text1"
+            ],
+        data(){
+            return{
 
-        }
-    },
-    methods:{
+            }
+        },
+        methods:{
 
+            }
     }
-}
 </script>
 <style>
 

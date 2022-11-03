@@ -1,32 +1,33 @@
 <template>
-<div>
     <div>
-        <NavBar>
+        <div>
+            <NavBar>
+            
+            </NavBar>
+        
+            <div>
+                <div class="titleBorder">
+                <Title :title1="title" class="cont">
 
-        </NavBar>
-        <div >
-            <div class="titleBorder">
-            <Title :title1="title" class="cont">
+                </Title>
+                </div>
+                <div class="cont">
+                    <Image>
 
-            </Title>
+                    </Image>
+                    <Header :text1="messAge1" :text2="messAge2">
+
+                    </Header>
+                </div>
             </div>
-            <div class="cont">
-                <Image>
+            <div class="butcont">
+                <Button :text1="butt" :id="sty">
 
-                </Image>
-                <Header :text1="messAge1" :text2="messAge2">
-
-                </Header>
+                </Button>
             </div>
         </div>
-        <div class="butcont">
-            <Button :text1="butt" class="but">
-
-            </Button>
-        </div>
-    </div>
     
-</div>
+    </div>
 
 </template>
 <script>
@@ -36,6 +37,7 @@ import Image from "./Image.vue"
 import NavBar from "./NavBar.vue";
 import Title from "./Title.vue";
 import Button from "./Button.vue";
+import {ref} from "vue";
 export default {
     name: "Renderer",
     components:{
@@ -48,22 +50,24 @@ export default {
     data() {
         const byJson = JSON.stringify(json);
         const myJson = JSON.parse(byJson);
+        
         return {
             byJson:JSON.stringify(json),
             myJson:JSON.parse(byJson),
             messAge1:myJson[6].menu.options[1].submenu2.text,
             messAge2:myJson[6].menu.options[0].submenu1.text,
             title:myJson[0].title.text,
-            butt:myJson[5].button.text
+            butt:myJson[5].button.text,
+            sty:ref("but")
         };
     },
     methods: {
-        rend() {
-            console.log(JSON.stringify(this.myJson));
+        changeStyle(mess) {
+            this.sty = mess;
         }
     },
     created() {
-        this.rend();
+        
     },
 }
 
@@ -78,15 +82,20 @@ export default {
 }
 .butcont{
     display: flex;
+    margin: 2%;
+    height: 3rem;
     justify-content: right;
 }
-.but{
-    height: 3rem;
+#but{
+    
     color:white;
-    background-color: blue;
-    margin: 2%;
+    background-color: rgba(21, 24, 184, 0.408);
+
 }
-.hi{
-    color: black;
+#ass{
+    color:black;
+    background-color: brown;
 }
+
+
 </style>

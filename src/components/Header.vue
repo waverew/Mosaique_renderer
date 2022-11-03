@@ -1,11 +1,8 @@
 <template>
     <div>
-        <div v-html="rawHTML">
-            
-        </div>
         <div>
-        {{text1}}
-        {{text2}}
+         {{text1}}
+         {{text2}}
         </div>
     </div>
     </template>

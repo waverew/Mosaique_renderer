@@ -1,16 +1,16 @@
 <template>
     <div class="nav">
         <TDropDown :text1="dropDownSel1" :text2="dropDownSel2"></TDropDown>
-        <TDropDown text1="Style" text2="Style but new"></TDropDown>
-        
+        <TDropDown text1="Style"  text2="Style but new"></TDropDown>
     </div>
 </template>
 <script>
 import json from "./DisplayObjects.json"
 import TDropDown from "./TDropDown.vue";
+import {changeStyle} from "./Renderer.vue"
 export default{
     name: "NavBar",
-    components: { 
+    components: {
         TDropDown 
     },
     data() {
@@ -35,7 +35,6 @@ export default{
     background-color: rgba(104, 51, 106, 0.476);
     display: flex;
     justify-content: space-between;
-    width:100vw;
     border-style:dotted;
 }
 </style>
