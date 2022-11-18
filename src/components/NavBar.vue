@@ -7,7 +7,6 @@
 <script>
 import json from "./DisplayObjects.json"
 import TDropDown from "./TDropDown.vue";
-import {changeStyle} from "./Renderer.vue"
 export default{
     name: "NavBar",
     components: {

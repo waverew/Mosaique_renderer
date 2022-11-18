@@ -1,10 +1,9 @@
 <template>
     <div>
-        <div>
-            <NavBar>
-            
-            </NavBar>
-        
+        <div class="nav">
+        <TDropDown :text1="dropDownSel1" :text2="dropDownSel2"></TDropDown>
+        <TDropDown text1="Style" text2="Style but new" @fun1="changeStyle('but1')" @fun2="changeStyle('but2')" ></TDropDown>
+        </div>
             <div>
                 <div class="titleBorder">
                 <Title :title1="title" class="cont">
@@ -21,11 +20,11 @@
                 </div>
             </div>
             <div class="butcont">
-                <Button :text1="butt" :id="sty">
+                <Button :text1="butt" :id="sty" @click="changeStyle('but2')">
 
                 </Button>
             </div>
-        </div>
+        
     
     </div>
 
@@ -34,9 +33,10 @@
 import json from "./DisplayObjects.json"
 import Header from "./Header.vue"
 import Image from "./Image.vue"
-import NavBar from "./NavBar.vue";
+//import NavBar from "./NavBar.vue";
 import Title from "./Title.vue";
 import Button from "./Button.vue";
+import TDropDown from "./TDropDown.vue";
 import {ref} from "vue";
 export default {
     name: "Renderer",
@@ -45,7 +45,7 @@ export default {
         Title,
         Image,
         Header,
-        NavBar
+        TDropDown
 },
     data() {
         const byJson = JSON.stringify(json);
@@ -58,17 +58,16 @@ export default {
             messAge2:myJson[6].menu.options[0].submenu1.text,
             title:myJson[0].title.text,
             butt:myJson[5].button.text,
-            sty:ref("but")
+            dropDownSel1:myJson[10].dropDownSelect.options[0].option.text,
+            dropDownSel2:myJson[10].dropDownSelect.options[1].option.text,
+            sty:ref("but1")
         };
     },
     methods: {
         changeStyle(mess) {
             this.sty = mess;
         }
-    },
-    created() {
-        
-    },
+    }
 }
 
 </script>
@@ -86,15 +85,21 @@ export default {
     height: 3rem;
     justify-content: right;
 }
-#but{
+#but1{
     
     color:white;
     background-color: rgba(21, 24, 184, 0.408);
 
 }
-#ass{
+#but2{
     color:black;
     background-color: brown;
+}
+.nav{
+    background-color: rgba(104, 51, 106, 0.476);
+    display: flex;
+    justify-content: space-between;
+    border-style:dotted;
 }
 
 

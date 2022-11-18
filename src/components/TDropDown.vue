@@ -5,10 +5,14 @@
          </label>
         <select>
             <option>
-                {{text1}}
+                <button @click="clicked1">
+                    {{text1}}
+                </button>
             </option>
             <option>
-                {{text2}}
+                <button @click="clicked2">
+                    {{text2}}
+                </button>
             </option>
         </select>
     </div>
@@ -16,7 +20,12 @@
 <script>
 export default{
     name:"TDropDown",
-    props:['text1', "text2", "fun"],
+    props:{
+        text1: String,
+        text2: String,
+        fun1: Function,
+        fun2: Function
+    },
     data(){
         return {
             
@@ -24,6 +33,12 @@ export default{
         }
     },
     methods:{
+        clicked1(){
+            this.$emit('fun1');
+        },
+        clicked2(){
+            this.$emit('fun2');
+        }
         
     }
 }
