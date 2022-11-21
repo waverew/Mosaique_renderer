@@ -1,7 +1,7 @@
 <template>
     <div class="nav">
         <TDropDown :text1="dropDownSel1" :text2="dropDownSel2"></TDropDown>
-        <TDropDown text1="Style"  text2="Style but new"></TDropDown>
+        <TDropDown text1="Style"  text2="Style but new" ></TDropDown>
     </div>
 </template>
 <script>

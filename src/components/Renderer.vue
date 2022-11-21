@@ -2,7 +2,7 @@
     <div>
         <div class="nav">
         <TDropDown :text1="dropDownSel1" :text2="dropDownSel2"></TDropDown>
-        <TDropDown text1="Style" text2="Style but new" @fun1="changeStyle('but1')" @fun2="changeStyle('but2')" ></TDropDown>
+        <TDropDown text1="Style" text2="Style but new"></TDropDown>
         </div>
             <div>
                 <div class="titleBorder">
@@ -66,6 +66,9 @@ export default {
     methods: {
         changeStyle(mess) {
             this.sty = mess;
+        },
+        changeStyle1(){
+            this.sty = "but1";
         }
     }
 }
