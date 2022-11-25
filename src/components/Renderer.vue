@@ -2,7 +2,7 @@
     <div>
         <div class="nav">
         <TDropDown :text1="dropDownSel1" :text2="dropDownSel2"></TDropDown>
-        <TDropDown text1="Style" text2="Style but new"></TDropDown>
+        <TDropDown text1="Style" text2="Style but new" @fun1="changeStyle1" @fun2="changeStyle1"></TDropDown>
         </div>
             <div>
                 <div class="titleBorder">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="butcont">
-                <Button :text1="butt" :id="sty" @click="changeStyle('but2')">
+                <Button :text1="butt" :id="sty" @click="changeStyle1">
 
                 </Button>
             </div>
@@ -68,7 +68,9 @@ export default {
             this.sty = mess;
         },
         changeStyle1(){
-            this.sty = "but1";
+            // eslint-disable-next-line
+            debugger;
+            this.sty = "but2";
         }
     }
 }
