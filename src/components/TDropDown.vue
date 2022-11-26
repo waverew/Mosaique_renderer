@@ -30,8 +30,6 @@ export default{
     },
     methods:{
         doSomething(x){
-            // eslint-disable-next-line
-            debugger;
             const y = x.target.value;
             if (y === 'text1'){
                 this.$emit('fun1');

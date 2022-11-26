@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div :class="bSty" id="body">
         <div class="nav">
         <TDropDown :text1="dropDownSel1" :text2="dropDownSel2"></TDropDown>
-        <TDropDown text1="Style" text2="Style but new" @fun1="changeStyle1" @fun2="changeStyle1"></TDropDown>
+        <TDropDown text1="Style" text2="Style but new" @fun1="changeStyle('but1', 'body1', 'butcont1')" @fun2="changeStyle('but2', 'body2', 'butcont2')"></TDropDown>
         </div>
             <div>
                 <div class="titleBorder">
@@ -19,8 +19,8 @@
                     </Header>
                 </div>
             </div>
-            <div class="butcont">
-                <Button :text1="butt" :id="sty" @click="changeStyle1">
+            <div :class="bContSty">
+                <Button :text1="butt" :id="sty">
 
                 </Button>
             </div>
@@ -60,23 +60,33 @@ export default {
             butt:myJson[5].button.text,
             dropDownSel1:myJson[10].dropDownSelect.options[0].option.text,
             dropDownSel2:myJson[10].dropDownSelect.options[1].option.text,
-            sty:ref("but1")
+            sty:ref("but1"),
+            bSty:ref('body1'),
+            bContSty:ref('butcont1')
         };
     },
     methods: {
-        changeStyle(mess) {
-            this.sty = mess;
+        changeStyle(mess1, mess2, mess3) {
+            this.sty = mess1;
+            this.bSty = mess2;
+            this.bContSty = mess3;
         },
-        changeStyle1(){
-            // eslint-disable-next-line
-            debugger;
-            this.sty = "but2";
-        }
     }
 }
 
 </script>
 <style>
+#body{
+    font-family: 'Times New Roman', Times, serif;
+    height: 100vh;
+    width: 100vw;
+}
+.body1{
+    background-color: burlywood;
+}
+.body2{
+    background-color: blueviolet;
+}
 .titleBorder{
     border-bottom: dotted;
 }
@@ -84,11 +94,17 @@ export default {
     padding: 3%;
     
 }
-.butcont{
+.butcont1{
     display: flex;
     margin: 2%;
     height: 3rem;
     justify-content: right;
+}
+.butcont2{
+    display: flex;
+    margin: 2%;
+    height: 3rem;
+    justify-content: left;
 }
 #but1{
     
